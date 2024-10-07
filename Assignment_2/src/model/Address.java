@@ -9,33 +9,37 @@ package model;
  * @author rahul
  */
 public class Address {
-    private String street;
-    private String city;
+    private String streetAddress;
+    private String unitNumber;
     private String state;
-    private String zipCode;
+    private String city;
+    private String zip;
+    private String phone;
 
-    public Address(String street, String city, String state, String zipCode) {
-        this.street = street;
+    public Address(String streetAddress, String unitNumber, String city, String state, String zip, String phone) {
+        this.streetAddress = streetAddress;
+        this.unitNumber = unitNumber;
         this.city = city;
         this.state = state;
-        this.zipCode = zipCode;
+        this.zip = zip;
+        this.phone = phone;
     
 }
 
-    public String getStreet() {
-        return street;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
-    public String getCity() {
-        return city;
+    public String getUnitNumber() {
+        return unitNumber;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setUnitNumber(String unitNumber) {
+        this.unitNumber = unitNumber;
     }
 
     public String getState() {
@@ -46,13 +50,30 @@ public class Address {
         this.state = state;
     }
 
-    public String getZipCode() {
-        return zipCode;
+    public String getCity() {
+        return city;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public void setCity(String city) {
+        this.city = city;
     }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
 }
 
     

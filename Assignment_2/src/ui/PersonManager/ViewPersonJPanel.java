@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui;
+package ui.PersonManager;
 
 /**
  *
  * @author rahul
  */
-public class PersonJPanel extends javax.swing.JPanel {
+public class ViewPersonJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form PersonPanel
+     * Creates new form ViewPersonJPanel
      */
-    public PersonJPanel() {
+    public ViewPersonJPanel() {
         initComponents();
     }
 

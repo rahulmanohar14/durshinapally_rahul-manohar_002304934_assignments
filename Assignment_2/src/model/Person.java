@@ -11,16 +11,10 @@ package model;
 public class Person {
     private String firstName;
     private String lastName;
+    private int age;
+    private String ssn;
     private Address homeAddress;
     private Address workAddress;
-
-    public Person(String firstName, String lastName, Address homeAddress, Address workAddress) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.homeAddress = homeAddress;
-        this.workAddress = workAddress;
-    
-}
 
     public String getFirstName() {
         return firstName;
@@ -38,6 +32,22 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
+
     public Address getHomeAddress() {
         return homeAddress;
     }
@@ -53,4 +63,12 @@ public class Person {
     public void setWorkAddress(Address workAddress) {
         this.workAddress = workAddress;
     }
+    
+    @Override
+    public String toString() {
+        return getFirstName();
+    }
+
+
+   
 }
