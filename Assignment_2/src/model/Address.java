@@ -15,7 +15,7 @@ public class Address {
     private String city;
     private String zip;
     private String phone;
-
+    
     public Address(String streetAddress, String unitNumber, String city, String state, String zip, String phone) {
         this.streetAddress = streetAddress;
         this.unitNumber = unitNumber;
@@ -23,8 +23,7 @@ public class Address {
         this.state = state;
         this.zip = zip;
         this.phone = phone;
-    
-}
+    }
 
     public String getStreetAddress() {
         return streetAddress;
@@ -74,6 +73,8 @@ public class Address {
         this.phone = phone;
     }
 
+    
+    
 }
 
-    
+   

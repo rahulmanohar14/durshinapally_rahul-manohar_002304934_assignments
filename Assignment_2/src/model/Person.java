@@ -15,6 +15,8 @@ public class Person {
     private String ssn;
     private Address homeAddress;
     private Address workAddress;
+    
+
 
     public String getFirstName() {
         return firstName;

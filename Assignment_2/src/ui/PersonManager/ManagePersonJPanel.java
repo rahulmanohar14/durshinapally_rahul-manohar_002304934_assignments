@@ -4,17 +4,29 @@
  */
 package ui.PersonManager;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import model.PersonDirectory;
+
+
 /**
  *
  * @author rahul
  */
 public class ManagePersonJPanel extends javax.swing.JPanel {
+    
+    JPanel workAreaContainer;
+    PersonDirectory personDirectory;
+
 
     /**
      * Creates new form ManagePersonJPanel
      */
-    public ManagePersonJPanel() {
+    public ManagePersonJPanel(JPanel container, PersonDirectory directory) {
         initComponents();
+        workAreaContainer = container;
+        personDirectory = directory;
+
     }
 
     /**
@@ -27,8 +39,8 @@ public class ManagePersonJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAddPerson = new javax.swing.JButton();
+        btnListPerson = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
@@ -37,15 +49,30 @@ public class ManagePersonJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Profile");
 
-        jButton1.setText("Add Person");
+        btnAddPerson.setText("Add Person");
+        btnAddPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPersonActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("List Person");
+        btnListPerson.setText("List Person");
+        btnListPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListPersonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Create Profile:");
 
         jLabel3.setText("List all Profiles:");
 
         btnBack.setText("<<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -62,8 +89,8 @@ public class ManagePersonJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAddPerson, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(btnListPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(243, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
@@ -79,24 +106,53 @@ public class ManagePersonJPanel extends javax.swing.JPanel {
                 .addComponent(btnBack)
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btnListPerson)
                     .addComponent(jLabel3))
                 .addContainerGap(188, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAddPerson, btnListPerson});
 
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        workAreaContainer.remove(this);
+        
+        CardLayout layout = (CardLayout) workAreaContainer.getLayout();
+        layout.next(workAreaContainer);
+
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAddPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPersonActionPerformed
+        // TODO add your handling code here:
+        CreatePersonJPanel panel = new CreatePersonJPanel(workAreaContainer,personDirectory);
+        workAreaContainer.add("CreatePersonJPanel", panel);
+        
+        CardLayout layout= (CardLayout) workAreaContainer.getLayout();
+        layout.next(workAreaContainer);
+
+    }//GEN-LAST:event_btnAddPersonActionPerformed
+
+    private void btnListPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListPersonActionPerformed
+        // TODO add your handling code here:
+        ListPersonJPanel panel = new ListPersonJPanel(workAreaContainer,personDirectory);
+        workAreaContainer.add("ListPersonJPanel", panel);
+        
+        CardLayout layout= (CardLayout) workAreaContainer.getLayout();
+        layout.next(workAreaContainer);
+
+    }//GEN-LAST:event_btnListPersonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddPerson;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnListPerson;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
