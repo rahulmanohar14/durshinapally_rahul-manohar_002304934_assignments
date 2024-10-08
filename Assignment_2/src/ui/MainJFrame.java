@@ -46,28 +46,15 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        jSplitPane1 = new javax.swing.JSplitPane();
-        WorkAreaJPanel = new javax.swing.JPanel();
+        jSplitPane2 = new javax.swing.JSplitPane();
         controlPanel = new javax.swing.JPanel();
-        btnManagePerson = new javax.swing.JButton();
         btnListPerson = new javax.swing.JButton();
+        btnManagePerson = new javax.swing.JButton();
+        workAreaJPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         mainPanel.setLayout(new java.awt.CardLayout());
-
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-
-        WorkAreaJPanel.setLayout(new java.awt.CardLayout());
-        jSplitPane1.setRightComponent(WorkAreaJPanel);
-
-        btnManagePerson.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnManagePerson.setText("Manage Person");
-        btnManagePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManagePersonActionPerformed(evt);
-            }
-        });
 
         btnListPerson.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnListPerson.setText("List Persons");
@@ -77,44 +64,55 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnManagePerson.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnManagePerson.setText("Manage Person");
+        btnManagePerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagePersonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(btnManagePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnListPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(374, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnManagePerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnManagePerson)
-                    .addComponent(btnListPerson))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(115, 115, 115)
+                .addComponent(btnManagePerson)
+                .addGap(34, 34, 34)
+                .addComponent(btnListPerson)
+                .addContainerGap(284, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setLeftComponent(controlPanel);
+        jSplitPane2.setLeftComponent(controlPanel);
+
+        workAreaJPanel.setLayout(new java.awt.CardLayout());
+        jSplitPane2.setRightComponent(workAreaJPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,20 +120,18 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnManagePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePersonActionPerformed
         // TODO add your handling code here:
-        ManagePersonJPanel panel = new ManagePersonJPanel(WorkAreaJPanel, personDirectory);
-        WorkAreaJPanel.add("ManagePersonJPanel", panel);
-        CardLayout layout = (CardLayout) WorkAreaJPanel.getLayout();
-        layout.next(WorkAreaJPanel);
-
+        ManagePersonJPanel panel = new ManagePersonJPanel(workAreaJPanel, personDirectory);
+        workAreaJPanel.add("ManagePersonJPanel", panel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnManagePersonActionPerformed
 
     private void btnListPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListPersonActionPerformed
         // TODO add your handling code here:
-        ListPersonJPanel panel = new ListPersonJPanel(WorkAreaJPanel, personDirectory);
-        WorkAreaJPanel.add("ListPersonJPanel", panel);
-        CardLayout layout = (CardLayout) WorkAreaJPanel.getLayout();
-        layout.next(WorkAreaJPanel);
-
+        ListPersonJPanel panel = new ListPersonJPanel(workAreaJPanel, personDirectory);
+        workAreaJPanel.add("ListPersonJPanel", panel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnListPersonActionPerformed
 
     /**
@@ -175,12 +171,12 @@ public class MainJFrame extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel WorkAreaJPanel;
     private javax.swing.JButton btnListPerson;
     private javax.swing.JButton btnManagePerson;
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel workAreaJPanel;
     // End of variables declaration//GEN-END:variables
  private void generateDemoData() {
         Person newPerson = personDirectory.addPerson();
@@ -213,6 +209,7 @@ public class MainJFrame extends javax.swing.JFrame {
         Address workAddress2 = new Address("9608 E Jefferson PL", "Apt 8", "Aurora", "CO", "80014", "8765432");
         person2.setHomeAddress(homeAddress2);
         person2.setWorkAddress(workAddress2);
+        
         Person person3 = personDirectory.addPerson();
         person3.setFirstName("Venu");
         person3.setLastName("Sikhakolli");
@@ -222,6 +219,7 @@ public class MainJFrame extends javax.swing.JFrame {
         Address workAddress3 = new Address("10 Paul Robeson Blvd", "NJ APARTMENTS", "New Brunswick", "NJ", "08901", "77665544");
         person3.setHomeAddress(homeAddress3);
         person3.setWorkAddress(workAddress3);
+        
         Person person4 = personDirectory.addPerson();
         person4.setFirstName("Pradhyumna ");
         person4.setLastName("Reddy");

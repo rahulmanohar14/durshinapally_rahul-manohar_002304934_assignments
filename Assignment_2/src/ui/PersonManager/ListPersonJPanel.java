@@ -238,10 +238,10 @@ public class ListPersonJPanel extends javax.swing.JPanel {
 
     for (Person p : personDirectory.getPersonData()) {
         Object[] row = new Object[4];
-        row[0] = p; // Assuming Person has a toString() method that shows the first name.
+        row[0] = p;
         row[1] = p.getLastName();
-        row[2] = p.getHomeAddress().toString(); // Adjust as needed
-        row[3] = p.getWorkAddress().toString(); // Adjust as needed
+        row[2] = p.getHomeAddress(); 
+        row[3] = p.getWorkAddress(); 
         model.addRow(row);
     }
 }

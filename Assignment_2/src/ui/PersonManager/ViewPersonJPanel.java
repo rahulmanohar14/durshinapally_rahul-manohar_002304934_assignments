@@ -422,5 +422,70 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtZip1;
     // End of variables declaration//GEN-END:variables
 
-    
+    private void refreshTextFields() {
+    txtFirstName.setText(person.getFirstName());
+    txtLastName.setText(person.getLastName());
+    txtSsn.setText(person.getSsn());
+    txtAge.setText(String.valueOf(person.getAge()));
+
+    txtStreetAddress.setText(person.getHomeAddress().getStreetAddress());
+    txtUnit.setText(person.getHomeAddress().getUnitNumber());
+    txtCity.setText(person.getHomeAddress().getCity());
+    txtState.setText(person.getHomeAddress().getState());
+    txtZip.setText(person.getHomeAddress().getZip());
+    txtPhone.setText(person.getHomeAddress().getPhone());
+
+    txtStreetAddress1.setText(person.getWorkAddress().getStreetAddress());
+    txtUnit1.setText(person.getWorkAddress().getUnitNumber());
+    txtCity1.setText(person.getWorkAddress().getCity());
+    txtState1.setText(person.getWorkAddress().getState());
+    txtZip1.setText(person.getWorkAddress().getZip());
+    txtPhone1.setText(person.getWorkAddress().getPhone());
+}
+    private void setViewMode() {
+    txtFirstName.setEnabled(false);
+    txtLastName.setEnabled(false);
+    txtSsn.setEnabled(false);
+    txtAge.setEnabled(false);
+
+    txtStreetAddress.setEnabled(false);
+    txtUnit.setEnabled(false);
+    txtCity.setEnabled(false);
+    txtState.setEnabled(false);
+    txtZip.setEnabled(false);
+    txtPhone.setEnabled(false);
+
+    txtStreetAddress1.setEnabled(false);
+    txtUnit1.setEnabled(false);
+    txtCity1.setEnabled(false);
+    txtState1.setEnabled(false);
+    txtZip1.setEnabled(false);
+    txtPhone1.setEnabled(false);
+
+    btnSave.setEnabled(false);
+    btnUpdate.setEnabled(true);
+}
+    private void setEditMode() {
+    txtFirstName.setEnabled(true);
+    txtLastName.setEnabled(true);
+    txtSsn.setEnabled(true);
+    txtAge.setEnabled(true);
+
+    txtStreetAddress.setEnabled(true);
+    txtUnit.setEnabled(true);
+    txtCity.setEnabled(true);
+    txtState.setEnabled(true);
+    txtZip.setEnabled(true);
+    txtPhone.setEnabled(true);
+
+    txtStreetAddress1.setEnabled(true);
+    txtUnit1.setEnabled(true);
+    txtCity1.setEnabled(true);
+    txtState1.setEnabled(true);
+    txtZip1.setEnabled(true);
+    txtPhone1.setEnabled(true);
+
+    btnSave.setEnabled(true);
+    btnUpdate.setEnabled(false);
+}
 }
