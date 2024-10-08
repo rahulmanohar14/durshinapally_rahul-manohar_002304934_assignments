@@ -82,6 +82,7 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         jLabel19 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setToolTipText("");
 
         jLabel1.setText("First Name");

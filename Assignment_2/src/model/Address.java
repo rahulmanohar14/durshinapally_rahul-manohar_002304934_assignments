@@ -16,6 +16,11 @@ public class Address {
     private String zip;
     private String phone;
     
+    @Override
+    public String toString() {
+        return streetAddress + ", " + (unitNumber.isEmpty() ? "" : "Unit " + unitNumber + ", ") + city + ", " + state + " " + zip + ", Phone: " + phone;
+    }
+    
     public Address(String streetAddress, String unitNumber, String city, String state, String zip, String phone) {
         this.streetAddress = streetAddress;
         this.unitNumber = unitNumber;
@@ -23,6 +28,8 @@ public class Address {
         this.state = state;
         this.zip = zip;
         this.phone = phone;
+        
+        
     }
 
     public String getStreetAddress() {

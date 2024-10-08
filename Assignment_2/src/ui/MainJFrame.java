@@ -54,7 +54,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        mainPanel.setBackground(new java.awt.Color(153, 204, 255));
+        mainPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         mainPanel.setLayout(new java.awt.CardLayout());
+
+        controlPanel.setBackground(new java.awt.Color(153, 153, 255));
+        controlPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnListPerson.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnListPerson.setText("List Persons");
@@ -90,11 +95,13 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnManagePerson)
                 .addGap(34, 34, 34)
                 .addComponent(btnListPerson)
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         jSplitPane2.setLeftComponent(controlPanel);
 
+        workAreaJPanel.setBackground(new java.awt.Color(153, 153, 255));
+        workAreaJPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         workAreaJPanel.setLayout(new java.awt.CardLayout());
         jSplitPane2.setRightComponent(workAreaJPanel);
 
@@ -112,7 +119,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE))
+                .addComponent(jSplitPane2))
         );
 
         pack();

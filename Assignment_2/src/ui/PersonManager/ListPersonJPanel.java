@@ -51,6 +51,9 @@ public class ListPersonJPanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         txtSearch = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(153, 204, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("List Profile");
@@ -62,6 +65,9 @@ public class ListPersonJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+
+        jScrollPane1.setBackground(new java.awt.Color(0, 255, 255));
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         tblPerson.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,7 +130,7 @@ public class ListPersonJPanel extends javax.swing.JPanel {
                 .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDelete, btnSearch, btnView});
@@ -144,7 +150,7 @@ public class ListPersonJPanel extends javax.swing.JPanel {
                     .addComponent(btnDelete)
                     .addComponent(btnSearch)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnDelete, btnSearch, btnView, txtSearch});
@@ -240,8 +246,8 @@ public class ListPersonJPanel extends javax.swing.JPanel {
         Object[] row = new Object[4];
         row[0] = p;
         row[1] = p.getLastName();
-        row[2] = p.getHomeAddress(); 
-        row[3] = p.getWorkAddress(); 
+        row[2] = p.getHomeAddress()!= null ? p.getHomeAddress().toString() : "N/A"; 
+        row[3] = p.getWorkAddress()!= null ? p.getWorkAddress().toString() : "N/A";
         model.addRow(row);
     }
 }
