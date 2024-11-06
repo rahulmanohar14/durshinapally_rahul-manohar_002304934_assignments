@@ -33,7 +33,7 @@ public class FacultyProfile {
             sum = sum + fa.getRating();
             
         }
-        //divide by the total number of faculty assignments
+        
         
         return sum/(facultyassignments.size()*1.0); //this ensure we have double/double
         

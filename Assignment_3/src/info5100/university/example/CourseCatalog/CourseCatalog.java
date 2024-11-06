@@ -27,7 +27,7 @@ public class CourseCatalog {
         initializePredefinedCourses();
     }
     private void initializePredefinedCourses() {
-        // Add predefined courses here
+        
         addPredefinedCourse("info 5100", "Introduction to Information Systems", 4);
         addPredefinedCourse("info 5200", "Database Management Systems", 4);
         addPredefinedCourse("info 5300", "Software Engineering", 4);

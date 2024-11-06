@@ -20,7 +20,7 @@ public class SeatAssignment {
     private String studentId;
     private StudentProfile studentProfile;
     
-    //private String grade;
+    
 
     public float getGrade() {
         return grade;
@@ -37,14 +37,11 @@ public class SeatAssignment {
     }
    
 
-    // Constructor and other methods
-
-    // Setter method for studentId
     public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
     
-    // Getter method for studentId (optional)
+    
     public String getStudentId() {
         return studentId;
     }
