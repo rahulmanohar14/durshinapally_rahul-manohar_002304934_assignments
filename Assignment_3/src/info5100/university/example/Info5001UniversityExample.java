@@ -457,7 +457,50 @@ private static void registerExistingStudent(StudentDirectory studentDirectory, C
     }
     
     
-    
+    private static void generateSemesterReport(ArrayList<StudentProfile> students, String semester) {
+            System.out.println("Semester Report for " + semester + ":\n");
+            Random random = new Random();
+            String[] courses = {"Info 5100", "Info 5200", "ENCP 2000", "Info 5400", "Info 5500", "DAMG 6000"};
+            String[] professors = {"Prof. John", "Prof. Gold", "Prof. Wills", "Prof. Brown", "Prof. Manuel", "Prof. Kal"};
+
+            for (StudentProfile student : students) {
+                System.out.println("Student: " + student.getStudentId()); 
+
+                
+                System.out.println("Courses:");
+                HashSet<Integer> selectedIndices = new HashSet<>();
+                for (int i = 0; i < 3; i++) {
+                    int index;
+                    do {
+                        index = random.nextInt(courses.length);
+                    } while (selectedIndices.contains(index));
+                    selectedIndices.add(index);
+                    System.out.println(courses[index] + " : " + professors[index]);
+                }
+
+                // Generate and print random grades
+                System.out.print("Grades: [");
+                double sumGPA = 0.0;
+                for (int i = 0; i < 3; i++) {
+                    char grade = (char) (random.nextInt(4) + 'A');
+                    System.out.print(grade);
+                    sumGPA += convertGradeToGPA(grade);
+                    if (i < 2) {
+                        System.out.print(", ");
+                    }
+                }
+                System.out.println("]");
+
+                double averageGPA = sumGPA / 3.0; // Calculate average GPA
+                System.out.println("Average GPA: " + String.format("%.2f", averageGPA));
+
+                int tuitionFee = 4000 + random.nextInt(2000);
+                System.out.println("Tuition Fee: $" + tuitionFee);
+
+                System.out.println(); 
+            }
+        }
+
   
     
     private static double convertGradeToGPA(char grade) {
