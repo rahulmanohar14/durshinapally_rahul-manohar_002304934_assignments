@@ -26,8 +26,7 @@ public class FacultyProfile {
     public  double getProfAverageOverallRating(){
         
         double sum = 0.0;
-        //for each facultyassignment extract class rating
-        //add them up and divide by the number of teaching assignmnet;
+        
         for(FacultyAssignment fa: facultyassignments){
             
             sum = sum + fa.getRating();

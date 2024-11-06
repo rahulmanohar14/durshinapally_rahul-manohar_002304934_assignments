@@ -36,9 +36,7 @@ public class UserAccountDirectory {
 
         for (UserAccount sp : studentlist) {
 
-         //   if (sp.isMatch(id)) {
-         //       return sp;
-         //   }
+         
         }
             return null; //not found after going through the whole list
          }
